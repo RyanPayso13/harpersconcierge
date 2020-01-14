@@ -18,7 +18,7 @@ export class WordService {
     return this.subject.asObservable();
   }
 
-  convertSentenceForGraph(sentence: string): Object {
+  convertSentenceForChart(sentence: string): Object {
     let wordCount = sentence
       .trim()
       .split(" ")

@@ -1,7 +1,7 @@
 <div class="chart-container">
   <ul class="chart-axis">
     <li
-      *ngFor="let item of graphData | keyvalue"
+      *ngFor="let item of chartData | keyvalue"
       class="chart-bar"
       [style.width]="calculateBarPercentage(item.value)"
     >

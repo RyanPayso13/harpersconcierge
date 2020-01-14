@@ -9,7 +9,7 @@ import { WordService } from "../services/word.service";
   styleUrls: ["./chart.component.scss"]
 })
 export class ChartComponent implements OnInit, OnDestroy {
-  graphData: any = {};
+  chartData: any = {};
   totalWords: number = 0;
   subscription: Subscription;
 
@@ -19,10 +19,10 @@ export class ChartComponent implements OnInit, OnDestroy {
       .pipe(distinctUntilChanged())
       .subscribe(sentence => {
         if (sentence) {
-          this.graphData = this.wordService.convertSentenceForGraph(
+          this.chartData = this.wordService.convertSentenceForChart(
             sentence.sentence
           );
-          this.totalWords = Object.keys(this.graphData).length;
+          this.totalWords = Object.keys(this.chartData).length;
         }
       });
   }
