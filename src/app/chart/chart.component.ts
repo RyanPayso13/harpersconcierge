@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Subscription, from } from "rxjs";
+import { distinctUntilChanged } from "rxjs/operators";
 import { WordService } from "../services/word.service";
 
 @Component({
@@ -13,14 +14,17 @@ export class ChartComponent implements OnInit {
   subscription: Subscription;
 
   constructor(private wordService: WordService) {
-    this.subscription = this.wordService.getSentence().subscribe(sentence => {
-      if (sentence) {
-        this.graphData = this.wordService.convertSentenceForGraph(
-          sentence.sentence
-        );
-        this.totalWords = Object.keys(this.graphData).length;
-      }
-    });
+    this.subscription = this.wordService
+      .getSentence()
+      .pipe(distinctUntilChanged())
+      .subscribe(sentence => {
+        if (sentence) {
+          this.graphData = this.wordService.convertSentenceForGraph(
+            sentence.sentence
+          );
+          this.totalWords = Object.keys(this.graphData).length;
+        }
+      });
   }
 
   ngOnInit() {}
