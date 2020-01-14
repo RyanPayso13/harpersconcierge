@@ -1,6 +1,5 @@
 <form [formGroup]="inputForm" (ngSubmit)="onSubmit(inputForm.value)">
   <div>
-    <label for="sentance">Please enter the sentence:</label>
     <textarea
       name="sentence"
       id="sentence"
@@ -9,5 +8,5 @@
       formControlName="sentence"
     ></textarea>
   </div>
-  <button class="button" type="submit">Calculate</button>
+  <button class="button" type="submit">Generate graph</button>
 </form>

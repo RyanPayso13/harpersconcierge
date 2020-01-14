@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
+import { WordService } from "../services/word.service";
 
 @Component({
   selector: "app-input",
@@ -9,7 +10,10 @@ import { FormBuilder } from "@angular/forms";
 export class InputComponent implements OnInit {
   inputForm;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private wordService: WordService
+  ) {
     this.inputForm = this.formBuilder.group({
       sentence: ""
     });
@@ -17,5 +21,7 @@ export class InputComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit(sentenceData: string) {}
+  onSubmit(inputData): void {
+    this.wordService.sendSentence(inputData);
+  }
 }
