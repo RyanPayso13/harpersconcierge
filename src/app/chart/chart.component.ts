@@ -3,19 +3,22 @@ import { Subscription } from "rxjs";
 import { WordService } from "../services/word.service";
 
 @Component({
-  selector: "app-graph",
-  templateUrl: "./graph.component.html",
-  styleUrls: ["./graph.component.scss"]
+  selector: "app-chart",
+  templateUrl: "./chart.component.html",
+  styleUrls: ["./chart.component.scss"]
 })
-export class GraphComponent implements OnInit {
+export class ChartComponent implements OnInit {
+  graphData: any = {};
+  totalWords: Number = 0;
   subscription: Subscription;
 
   constructor(private wordService: WordService) {
     this.subscription = this.wordService.getSentence().subscribe(sentence => {
       if (sentence) {
-        console.log(
-          this.wordService.convertSentenceForGraph(sentence.sentence)
+        this.graphData = this.wordService.convertSentenceForGraph(
+          sentence.sentence
         );
+        this.totalWords = Object.keys(this.graphData).length;
       }
     });
   }

@@ -1,0 +1,24 @@
+.chart-container {
+  width: 95%;
+}
+
+.chart-axis {
+  margin: 30px 0 0 10px;
+  padding: 0;
+}
+
+.chart-bar {
+  list-style: none;
+  $border-rad: 4px;
+  height: 30px;
+  margin-bottom: 10px;
+  background: black;
+  border-top-right-radius: $border-rad;
+  border-bottom-right-radius: $border-rad;
+}
+
+.chart-label {
+  padding-left: 10px;
+  line-height: 30px;
+  color: white;
+}

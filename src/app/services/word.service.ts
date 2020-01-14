@@ -20,11 +20,12 @@ export class WordService {
 
   convertSentenceForGraph(sentence: string): Object {
     let wordCount = sentence
+      .trim()
       .split(" ")
       .filter(w => !this.excludedWordsList.includes(w.toLowerCase()))
-      .reduce(function(countMap, word) {
-        countMap[word] = ++countMap[word] || 1;
-        return countMap;
+      .reduce(function(acc, cur, idx, src) {
+        acc[cur] = ++acc[cur] || 1;
+        return acc;
       }, {});
 
     return wordCount;

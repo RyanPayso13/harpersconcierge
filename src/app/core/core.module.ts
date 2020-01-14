@@ -3,12 +3,12 @@ import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { WordService } from "../services/word.service";
 import { InputComponent } from "../input/input.component";
-import { GraphComponent } from "../graph/graph.component";
+import { ChartComponent } from "../chart/chart.component";
 
 @NgModule({
-  declarations: [InputComponent, GraphComponent],
+  declarations: [InputComponent, ChartComponent],
   imports: [CommonModule, ReactiveFormsModule, FormsModule],
-  exports: [InputComponent, GraphComponent],
+  exports: [InputComponent, ChartComponent],
   providers: [WordService]
 })
 export class CoreModule {}
