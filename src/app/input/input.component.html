@@ -1,0 +1,13 @@
+<form [formGroup]="inputForm" (ngSubmit)="onSubmit(inputForm.value)">
+  <div>
+    <label for="sentance">Please enter the sentence:</label>
+    <textarea
+      name="sentence"
+      id="sentence"
+      cols="30"
+      rows="10"
+      formControlName="sentence"
+    ></textarea>
+  </div>
+  <button class="button" type="submit">Calculate</button>
+</form>
