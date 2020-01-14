@@ -8,7 +8,7 @@ import { WordService } from "../services/word.service";
   templateUrl: "./chart.component.html",
   styleUrls: ["./chart.component.scss"]
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit, OnDestroy {
   graphData: any = {};
   totalWords: number = 0;
   subscription: Subscription;
