@@ -9,7 +9,7 @@ import { WordService } from "../services/word.service";
 })
 export class ChartComponent implements OnInit {
   graphData: any = {};
-  totalWords: Number = 0;
+  totalWords: number = 0;
   subscription: Subscription;
 
   constructor(private wordService: WordService) {
@@ -28,5 +28,9 @@ export class ChartComponent implements OnInit {
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
+  }
+
+  calculateBarPercentage(value: number): String {
+    return `${(value / this.totalWords) * 100}%`;
   }
 }

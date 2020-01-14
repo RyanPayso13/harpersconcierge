@@ -3,7 +3,7 @@
     <li
       *ngFor="let item of graphData | keyvalue"
       class="chart-bar"
-      [style.width]="(item.value / totalWords) * 100 + '%'"
+      [style.width]="calculateBarPercentage(item.value)"
     >
       <span class="chart-label">{{ item.key }}</span>
     </li>
